@@ -9,7 +9,8 @@ use soroban_sdk::{
     IntoVal,
 };
 
-const CAP: i128 = 1_000_0000000; // 1,000 STONE (7 decimals)
+const STONE: i128 = 10_000_000; // 1 STONE = 10^7 stroops
+const CAP: i128 = 1_000 * STONE;
 
 struct Setup<'a> {
     env: Env,
@@ -49,12 +50,12 @@ fn award_mints_stone_and_records_claim() {
     let player = Address::generate(&s.env);
     let achievement = symbol_short!("breathe1");
 
-    s.rewards.award(&player, &achievement, &50_0000000);
+    s.rewards.award(&player, &achievement, &(50 * STONE));
 
-    assert_eq!(s.token.balance(&player), 50_0000000);
+    assert_eq!(s.token.balance(&player), 50 * STONE);
     assert!(s.rewards.is_claimed(&player, &achievement));
-    assert_eq!(s.rewards.total_earned(&player), 50_0000000);
-    assert_eq!(s.rewards.earned_today(&player), 50_0000000);
+    assert_eq!(s.rewards.total_earned(&player), 50 * STONE);
+    assert_eq!(s.rewards.earned_today(&player), 50 * STONE);
 }
 
 #[test]
