@@ -42,7 +42,7 @@ stellar contract build
 
 ## Security
 
-If you find a vulnerability, **do not open a public issue**. Email the maintainers through [stoneale.com](https://stoneale.com) instead.
+If you find a vulnerability, **do not open a public issue**. Email **[security@stoneale.com](mailto:security@stoneale.com)** instead.
 
 ## License
 
