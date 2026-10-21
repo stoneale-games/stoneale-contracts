@@ -27,7 +27,7 @@ CI runs these checks, so run them locally first:
 cargo fmt --all
 cargo clippy --all-targets -- -D warnings
 cargo test
-cargo build --target wasm32v1-none --release
+stellar contract build
 ```
 
 ## Guidelines
