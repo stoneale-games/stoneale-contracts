@@ -12,6 +12,19 @@ Stoneale rewards healthy habits like breathing sessions, mood check-ins and jour
 | [`stone-rewards`](contracts/stone-rewards) | Mints **STONE**, a Stellar asset, to players when the game server reports a completed achievement. Each achievement can be claimed once, and each player has a daily cap. |
 | [`wellness-badges`](contracts/wellness-badges) | **Soulbound** (non-transferable) NFTs for wellness milestones. Players can always burn their own badges. |
 
+## 🚀 Live on Stellar testnet
+
+| | Address |
+|---|---|
+| STONE asset (`STONE:GCPX…L5UI`) SAC | [`CCX55XV3JX5JCAK6PU4NVFH47ABA4KXRIKQCQHRVEXXCFWGHSQLTNCBG`](https://stellar.expert/explorer/testnet/contract/CCX55XV3JX5JCAK6PU4NVFH47ABA4KXRIKQCQHRVEXXCFWGHSQLTNCBG) |
+| `stone-rewards` | [`CB5CGHND7BPEJZBUKN4AO3UHNHXGG2U2OJ6ASWERKMMW54KIUKXOC6QC`](https://stellar.expert/explorer/testnet/contract/CB5CGHND7BPEJZBUKN4AO3UHNHXGG2U2OJ6ASWERKMMW54KIUKXOC6QC) |
+| `wellness-badges` | [`CBXEHWTFJDNWZNZESWLE67EODOBKSJG333F6ECPARPBXAV476J26RCOZ`](https://stellar.expert/explorer/testnet/contract/CBXEHWTFJDNWZNZESWLE67EODOBKSJG333F6ECPARPBXAV476J26RCOZ) |
+| Admin / STONE issuer | [`GCPX2276HEZKHLIPMC553SLBB3UJCQ377IU2DRICTSLFNDCXBOCWL5UI`](https://stellar.expert/explorer/testnet/account/GCPX2276HEZKHLIPMC553SLBB3UJCQ377IU2DRICTSLFNDCXBOCWL5UI) |
+
+`stone-rewards` is the admin of the STONE SAC. These values are also in [`deployments/testnet.env`](deployments/testnet.env), ready to drop into the Frontend's `.env`.
+
+Smoke-tested on 2026-10-21. A demo player received 50 STONE through `award`, `total_earned` returned the same amount, a badge was minted, and a duplicate claim was rejected with `AlreadyClaimed (#2)`.
+
 ## How it fits together
 
 ```
@@ -97,7 +110,7 @@ stellar contract deploy \
 ## Roadmap
 
 - [x] **Phase 1, foundations:** STONE rewards contract, soulbound badges, CI, unit tests.
-- [ ] **Phase 2, testnet launch:** deploy to testnet, connect the [Frontend](https://github.com/stoneale-games/Frontend) through Freighter, and have the game server sign `award` calls.
+- [ ] **Phase 2, testnet launch:** ~~deploy to testnet~~ (done, see above), connect the [Frontend](https://github.com/stoneale-games/Frontend) through Freighter, and have the game server sign `award` calls.
 - [ ] **Phase 3, player-owned data:** opt-in, encrypted wellness-progress proofs that players can share selectively with therapists or programs.
 - [ ] **Phase 4, impact ledger:** on-chain, aggregated, anonymised impact metrics that sponsors and NGOs can verify.
 - [ ] **Phase 5, mainnet:** security audit, multisig admin, mainnet deployment.
