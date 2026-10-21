@@ -15,7 +15,7 @@ Thanks for helping build Stoneale on Stellar!
 
 ```bash
 rustup target add wasm32v1-none
-cargo install --locked stellar-cli   # optional, needed for deploy and `stellar contract build`
+cargo install --locked stellar-cli   # required to build WASM and deploy
 cargo test
 ```
 
